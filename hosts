@@ -1,0 +1,9 @@
+10.39.96.3   solr.sdp.net.pe
+10.39.96.4   web.sdp.net.pe
+10.39.96.5   bd.sdp.net.pe
+
+127.0.0.1    localhost
+
+::1          localhost ip6-localhost ip6-loopback
+ff02::1      ip6-allnodes
+ff02::2      ip6-allrouters
