@@ -1,0 +1,7 @@
+export B2_ACCOUNT_ID=6eda00996934
+export B2_ACCOUNT_KEY=002db772bcb19ff2e2dabbf625813507ad77f04168
+export RESTIC_REPOSITORY="b2:backup-redcetas"
+export RESTIC_PASSWORD_FILE="/opt/restic/backup-redcetas-pw.txt"
+restic -v backup .
+restic -v forget --keep-last 30 --prune
+
