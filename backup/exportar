@@ -1,0 +1,4 @@
+#!/bin/bash
+echo ---$1---
+mysqldump $1 | gzip -9 > $1.sql.gz
+ 
