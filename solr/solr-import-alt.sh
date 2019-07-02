@@ -1,7 +1,7 @@
 curl -X POST \
   http://solr.sdp.net.pe:8983/solr/mycol1/dataimport \
-  -H 'Accept: application/json, text/javascript, */*; q=0.01' \
   -H 'Accept-Encoding: gzip, deflate, br' \
+  -H 'Accept: application/json, text/javascript, */*; q=0.01' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
