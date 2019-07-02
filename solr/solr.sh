@@ -1,5 +1,5 @@
 curl -X POST \
-  http://45.77.118.129:8983/solr/mycol1/dataimport \
+  http://solr.sdp.net.pe:8983/solr/mycol1/dataimport \
   -H 'Accept: application/json, text/javascript, */*; q=0.01' \
   -H 'Accept-Encoding: gzip, deflate, br' \
   -H 'Cache-Control: no-cache' \
