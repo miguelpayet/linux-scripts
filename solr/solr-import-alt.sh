@@ -1,7 +1,6 @@
-curl -X POST \
-  http://45.77.118.129:8983/solr/mycol1/dataimport \
-  -H 'Accept: application/json, text/javascript, */*; q=0.01' \
+curl -X POST http://localhost:8983/solr/mycol1/dataimport \
   -H 'Accept-Encoding: gzip, deflate, br' \
+  -H 'Accept: application/json, text/javascript, */*; q=0.01' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
