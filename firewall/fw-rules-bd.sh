@@ -17,27 +17,6 @@ iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -t filter -A INPUT -i lo -j ACCEPT
 iptables -t filter -A OUTPUT -o lo -j ACCEPT
 
-# SOLR
-# iptables -t filter -A INPUT -p tcp --src 104.156.245.195 --dport 8983 -j ACCEPT
-# iptables -t filter -A OUTPUT -p tcp --dport 8983 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 8983 -j ACCEPT
-# iptables -t filter -A OUTPUT -p tcp --dport 7983 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 7983 -j ACCEPT
-
-# PSQL
-# iptables -t filter -A OUTPUT -p tcp --dport 5433 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 5433 -j ACCEPT
-#  iptables -t filter -A OUTPUT -p tcp --dport 5432 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 5432 -j ACCEPT
-
-# Allow HTTP
-# iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 80 -j ACCEPT
-
-# Allow HTTPS
-# iptables -t filter -A OUTPUT -p tcp --dport 443 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 443 -j ACCEPT
-
 # Allow SSH
 iptables -t filter -A OUTPUT -p tcp --dport 22 -j ACCEPT 
 iptables -t filter -A INPUT -p tcp --dport 22 -j ACCEPT
@@ -45,13 +24,13 @@ iptables -t filter -A INPUT -p tcp --dport 22 -j ACCEPT
 # Mysql
 iptables -t filter -A OUTPUT -p tcp --dport 3306 -j ACCEPT
 iptables -t filter -A INPUT -p tcp --src 10.39.96.3,10.39.96.4 --dport 3306 -j ACCEPT  
-#iptables -t filter -A INPUT -p tcp --dport 3306 -j DROP
+
+# https
+iptables -t filter -A OUTPUT -p tcp --dport 443 -j ACCEPT
 
 # Allow DNS
 iptables -t filter -A OUTPUT -p tcp --dport 53 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --sport 53 -j ACCEPT
 iptables -t filter -A OUTPUT -p udp --dport 53 -j ACCEPT
-# iptables -t filter -A INPUT -p udp --sport 53 -j ACCEPT
 
 # Allow ICMP (ping)
 iptables -t filter -A INPUT -p icmp -j ACCEPT
