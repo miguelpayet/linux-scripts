@@ -17,8 +17,8 @@ iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -t filter -A INPUT -i lo -j ACCEPT
 iptables -t filter -A OUTPUT -o lo -j ACCEPT
 
-# PSQL
-# iptables -t filter -A OUTPUT -p tcp --dport 5433 -j ACCEPT
+# solr
+iptables -t filter -A OUTPUT -p tcp --dport 8983 -j ACCEPT
 
 # Allow HTTP
 iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT
@@ -36,36 +36,8 @@ iptables -t filter -A INPUT -p tcp -i ens3 --dport 22 -j ACCEPT
 iptables -t filter -A OUTPUT -p tcp --dport 3306 -j ACCEPT
 iptables -t filter -A INPUT -p tcp -i ens7 --sport 3306 -m state --state ESTABLISHED -j ACCEPT
 
-# Allow FTP
-# iptables -t filter -A OUTPUT -p tcp --dport 20:21 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 20:21 -j ACCEPT
-
-# Allow SMTP
-# iptables -t filter -A OUTPUT -p tcp --dport 25 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 25 -j ACCEPT
-# iptables -t filter -A OUTPUT -p tcp --dport 587 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 587 -j ACCEPT
-
-# Allow POP3
-# iptables -t filter -A OUTPUT -p tcp --dport 110 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 110 -j ACCEPT
-
-# Allow POPS
-# iptables -t filter -A OUTPUT -p tcp --dport 995 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 995 -j ACCEPT
-
-# Allow IMAP
-# iptables -t filter -A OUTPUT -p tcp --dport 143 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 143 -j ACCEPT
-
-# Allow IMAPS
-# iptables -t filter -A OUTPUT -p tcp --dport 993 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --dport 993 -j ACCEPT
-
 iptables -t filter -A OUTPUT -p tcp --dport 53 -j ACCEPT
-# iptables -t filter -A INPUT -p tcp --sport 53 -j ACCEPT
 iptables -t filter -A OUTPUT -p udp -o ens3 --dport 53 -j ACCEPT
-# iptables -t filter -A INPUT -p udp --sport 53 -j ACCEPT
 
 # Allow ICMP (ping)
 iptables -t filter -A INPUT -p icmp -j ACCEPT

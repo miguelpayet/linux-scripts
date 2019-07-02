@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -X POST 'Content-type:application/json' --data-binary '{"params":{"q":"limeño",
+curl -v -X POST 'Content-type:application/json' --data-binary '{"params":{"q":"limeño",
       "defType":"edismax", "qf":["nombre", "ingredientes", "descripcion"],
       "fl":"nombre,tipo,descripcion,identidad,score",
       "start":"0",
