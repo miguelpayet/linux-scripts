@@ -1,0 +1,5 @@
+[DEFAULT]
+bantime=604800
+findtime=604800
+usedns=no
+
