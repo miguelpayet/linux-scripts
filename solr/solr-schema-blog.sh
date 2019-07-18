@@ -48,3 +48,9 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
      "stored":true }
      }' http://localhost:8983/solr/mycol1_blog/schema
      
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+  "add-field":{
+     "name":"tipo",
+     "type":"string",
+     "stored":true }
+     }' http://localhost:8983/solr/mycol1_blog/schema

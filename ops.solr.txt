@@ -1,0 +1,7 @@
+# firewall
+
+fw-rules-solr.sh
+/etc/network/if-pre-up.d/firewall
+
+# fail2ban
+
