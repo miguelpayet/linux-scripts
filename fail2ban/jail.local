@@ -1,5 +1,7 @@
 [DEFAULT]
-bantime=86400
+# bantime= 172800
+# findtime=172800
+bantime= 86400
 findtime=86400
 usedns=no
 
