@@ -31,7 +31,8 @@ iptables -t filter -A INPUT -p tcp -s 10.39.96.4,10.39.96.5 --dport 7983 -j ACCE
 iptables -t filter -A OUTPUT -p tcp --dport 3306 -j ACCEPT
 iptables -t filter -A INPUT -p tcp -i ens7 --sport 3306 -m state --state ESTABLISHED -j ACCEPT
 
-# https
+# http y https
+sudo iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT
 sudo iptables -t filter -A OUTPUT -p tcp --dport 443 -j ACCEPT
 
 #dns
