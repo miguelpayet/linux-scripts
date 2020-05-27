@@ -1,0 +1,11 @@
+#!/bin/bash
+cd ~
+pwd
+whoami
+date
+cd /var/restic
+rm *.zip
+zip -ro9 web /var/www
+zip -ro9 apache /etc/apache2
+zip -ro9 fail2ban /etc/fail2ban
+/opt/restic/backblaze
