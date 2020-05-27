@@ -1,0 +1,28 @@
+<dataConfig>
+    <dataSource driver="org.mariadb.jdbc.Driver" url="jdbc:mysql://bd.sdp.net.pe:3306/blog" user="solr" password="A6MRohYkD*psJC" />
+    <document>
+	    <entity name="receta" 
+		    query="select identry,handle,titulo,descripcion,idtipo,group_concat(distinct tag.tag separator ' ') as tags from entry 
+                    left outer join tag_entry using (identry) left outer join tag using (idtag) group by identry"
+		deltaQuery="select identry from entry where cambiado > '${dataimporter.last_index_time}'"
+		pk="identry"
+		deltaImportQuery="select identry,handle,titulo,descripcion,idtipo,group_concat(distinct tag.tag separator ' ') as tags 
+		from entry left outer join tag_entry using (identry) left outer join tag using (idtag) where entry.identry=${dih.delta.identry} group by identry">
+		<field column="identry" name="id" />
+		<field column="handle" name="handle" />
+		<field column="titulo" name="titulo" />
+		<field column="descripcion" name="descripcion" />
+		<field column="idtipo" name="tipo" />
+            	<field column="tags" name="tags" />
+	</entity>
+	<entity name="tag" 
+		query="select idtag, identry, tag from tag left outer join tag_entry using (idtag)
+	        where '${dataimporter.request.clean}' != 'false' OR cambiado > '${dataimporter.last_index_time}'"
+		pk="idtag,identry">
+		<field name="id" column="idtag" />
+		<field name="identry" column="identry" />
+		<field name="tag" column="tag" />
+	</entity>
+    </document>
+</dataConfig>
+
