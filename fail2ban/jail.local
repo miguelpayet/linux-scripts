@@ -1,7 +1,7 @@
 [DEFAULT]
-bantime=86400
-findtime=86400
+#bantime=86400
+#findtime=86400
+bantime= 172800
+findtime=172800
 ignoreip=127.0.0.1,104.156.245.195,2607:fb90:4ae6:4fcd:e554:aac5:d60f:d4a2,179.6.208.237
 usedns=no
-# bantime= 172800
-# findtime=172800
