@@ -30,7 +30,7 @@ iptables -t filter -A INPUT -p tcp -i ens3 --dport 443 -j ACCEPT
 
 # Allow SSH
 iptables -t filter -A OUTPUT -p tcp --dport 22 -j ACCEPT
-iptables -t filter -A INPUT -p tcp -i ens3 --dport 22 -j ACCEPT
+iptables -t filter -A INPUT -p tcp -i ens3 --dport 2121 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
 # Mysql
 iptables -t filter -A OUTPUT -p tcp --dport 3306 -j ACCEPT
